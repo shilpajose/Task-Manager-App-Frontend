@@ -22,14 +22,14 @@ export class AdminUpdatetaskComponent {
         this.data = result.message
       }
     })
-    this.ds.getAllTaskApi().subscribe({
-      next: (result: any) => {
-        this.data = result.message
-        if (localStorage.getItem('CurrentUser')) {
-          this.name = localStorage.getItem('CurrentUser')
-        }
-      }
-    })
+    // this.ds.getAllTaskApi().subscribe({
+    //   next: (result: any) => {
+    //     this.data = result.message
+    //     if (localStorage.getItem('CurrentUser')) {
+    //       this.name = localStorage.getItem('CurrentUser')
+    //     }
+    //   }
+    // })
 
   }
   updateTask() {

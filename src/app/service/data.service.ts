@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  baseUrl: any = "http://localhost:3000"
+  // baseUrl: any = "http://localhost:3000"
+  baseUrl:any = "https://taskmanagerappserver.onrender.com"
 
   constructor(private http: HttpClient) { }
 

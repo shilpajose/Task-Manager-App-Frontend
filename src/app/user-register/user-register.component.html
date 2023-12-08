@@ -12,7 +12,7 @@
                     <div class="input-container">
                         <input formControlName="fullname" class="form-control w-100" type="text"
                             placeholder="Enter Your Name" name="fullname">
-                        <p *ngIf="this.userRegisterForm.get('name')?.errors && this.userRegisterForm.get('name')?.touched"
+                        <p *ngIf="this.userRegisterForm.get('fullname')?.errors && this.userRegisterForm.get('fullname')?.touched"
                       class="text-danger text-center">Name Required (include only alphabets) </p>
                     </div>
                     <div class="input-container mt-2">
