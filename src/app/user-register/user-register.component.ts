@@ -26,6 +26,9 @@ export class UserRegisterComponent {
             console.log(result);
             alert('New user Registered')
             this.rout.navigateByUrl("")
+          },
+          error:(result:any)=>{
+            alert(result.error.message)
           }
         })
     }
