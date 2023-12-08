@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  // baseUrl: any = "http://localhost:3000"
-  baseUrl:any = "https://taskmanagerappserver.onrender.com"
+  baseUrl: any = "http://localhost:3000"
+  // baseUrl: any = "https://taskmanagerappserver.onrender.com"
 
   constructor(private http: HttpClient) { }
 
@@ -35,20 +35,28 @@ export class DataService {
   getAllTaskApi() {
     return this.http.get(`${this.baseUrl}/getalltasks`)
   }
-    // get all users
-    getAllUsersApi(){
-      return this.http.get(`${this.baseUrl}/getallusers`)
-    }
-    // get one task
-    getSingleTaskApi(id:any){
-      return this.http.get(`${this.baseUrl}/one-task/${id}`)
-    }
+  // get all users
+  getAllUsersApi() {
+    return this.http.get(`${this.baseUrl}/getallusers`)
+  }
+  // get one task
+  getSingleTaskApi(id: any) {
+    return this.http.get(`${this.baseUrl}/one-task/${id}`)
+  }
+  // get one status
+  getSingleStatusApi(id: any) {
+    return this.http.get(`${this.baseUrl}/one-status/${id}`)
+  }
 
-    // edit task
-    editTaskApi(id: any, bodyData: any) {
-      return this.http.put(`${this.baseUrl}/edittask/${id}`, bodyData)
-    }
-    //   // delete task admin
+  // edit task
+  editTaskApi(id: any, bodyData: any) {
+    return this.http.put(`${this.baseUrl}/edittask/${id}`, bodyData)
+  }
+  // edit task
+  editStatusApi(id: any, bodyData: any) {
+    return this.http.put(`${this.baseUrl}/editStatus/${id}`, bodyData)
+  }
+  //   // delete task admin
   deleteTaskApi(id: any) {
     return this.http.delete(`${this.baseUrl}/delete-task/${id}`)
   }

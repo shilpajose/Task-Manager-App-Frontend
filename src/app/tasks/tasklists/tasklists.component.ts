@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/service/data.service';
 
@@ -14,9 +15,10 @@ export class TasklistsComponent {
   data: any = []
   uid: any = ''
   cid:any=''
+  sdata:any=[]
 
   // dependency injection 
-  constructor(private ds: DataService, private rout: Router, private ar: ActivatedRoute) { }
+  constructor(private ds: DataService, private rout: Router, private ar: ActivatedRoute,private fb:FormBuilder) { }
 
   ngOnInit(): void {
     // get all task data
@@ -30,8 +32,10 @@ export class TasklistsComponent {
         }
       }
     })
+    
  
   }
+  
   // task details page navigation
   viewTask(id: any) {
     this.rout.navigateByUrl(`tasks/taskdetails/${id}`)
@@ -53,13 +57,16 @@ export class TasklistsComponent {
   editStatus(id:any){
     this.rout.navigateByUrl(`tasks/edittask/${id}`)
   }
-  updateTask() {
-    this.ds.editTaskApi(this.cid, this.data).subscribe({
+
+
+  updateStatus() {
+    this.ds.editStatusApi(this.cid, this.data).subscribe({
       next: (result: any) => {
         // alert(result.message)
         this.rout.navigateByUrl("tasks")
       }
     })
   }
+  
 
 }
