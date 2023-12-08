@@ -1,0 +1,17 @@
+<div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/tasks">Task List</a></li>
+      <li class="breadcrumb-item"><a routerLink="/tasks/taskdetails">Task Details</a></li>
+    </ol>
+  </nav>
+  <h2 class="text-danger text-center">Task Detils</h2>
+  <div class="container w-50 mt-5 mb-5 shadow p-5 text-center">
+    Title:<h4 class="text-primary">{{data.title}}</h4>
+    Description:<h6 class="text-primary">{{data.description}}</h6>
+    Task Assigned To: <p class="text-primary">{{data.email}}</p>
+    Status: <p class="text-primary">{{data.taskstatus}}</p>
+    Task Assigned Date: <p class="text-primary">{{data.date}}</p>
+    <a (click)="editPage(data._id)" class="btn btn-danger">Edit</a>
+  </div>
+</div>

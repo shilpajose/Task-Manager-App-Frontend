@@ -1,0 +1,45 @@
+
+
+<div>
+    <div class="row">
+        <div class="col-2 container w-25 bg-dark p-5 text-center text-white">
+            <div class="text-white text-center">
+                <h4 class="text-secondary">Welcome <span class="text-danger">{{name}}</span> have a nice day!!!</h4>
+            </div>
+            <hr>
+            <ul class="text-white">
+                <li class="fa-solid fa-gauge" routerLink="/admin/admin-dashboard"><a> Dashboard</a></li>
+                <hr>
+                <li class="fa-solid fa-book" routerLink="/admin/admin-addtask"><a> Add Tasks</a></li>
+                <hr>
+                <li class="fa-solid fa-list fa-1x" routerLink="/admin/admin-tasklist"><a> Task Lists</a></li>
+                <hr>
+                <li class="fa-solid fa-users" routerLink="/admin/admin-memberlist"> Members List</li>
+                <hr>
+                <li class="fa-solid fa-right-from-bracket" (click)="logout()"> LogOut</li>
+            </ul>
+        </div>
+        <div class="w-75 bg-light mt-5 p-5">
+            <div class="container w-50 mb-5 shadow mt-5 p-5">
+                <h3 class="text-center text-danger">Edit Task Details</h3>
+                <form>
+                    <input [(ngModel)]="data.title" type="text" class="form-control mt-3" name="title"
+                        placeholder="Task Title" id="title">
+                    <textarea [(ngModel)]="data.description" type="text" class="form-control mt-3" name="description"
+                        placeholder="description" id="description"></textarea>
+                    <input [(ngModel)]="data.email" type="text" class="form-control mt-3" name="email" placeholder="Email"
+                        id="email">
+                    <input [(ngModel)]="data.taskstatus" type="text" class="form-control mt-3" name="taskstatus"
+                        placeholder="Status" id="taskstatus">
+                    <input [(ngModel)]="data.date" type="text" class="form-control mt-3" name="date" placeholder="Date"
+                        id="date">
+                </form>
+                <div class="mt-5">
+                    <button class="btn btn-success me-2 text-white" (click)="updateTask()" style="border-radius: 10px;">Update</button>
+                    <button class="btn btn-warning text-white" style="border-radius: 10px;"><a href="admin/admin-tasklist">Cancel</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

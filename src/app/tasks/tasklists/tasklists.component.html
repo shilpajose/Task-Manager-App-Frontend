@@ -1,0 +1,45 @@
+<div class="text-center bg-light pt-3 pb-3">
+    <h5 class="text-secondary">Welcome <span class="text-danger">{{name}}</span> have a nice day!!! <span class="btn btn-info text-white ms-5" (click)="logout()"
+        >LogOut</span></h5>
+</div>
+
+<div class="container">
+    <h2 class="text-danger text-center mt-3">Tasks List</h2>
+
+    <div class="container w-25 shadow p-5 text-center">
+        <h5 class="text-center text-success mb-3">Sort data</h5>
+        <button (click)="titlesort('title')" class="btn btn-primary text-white me-3">Title </button>
+        <button (click)="statussort('taskstatus')" class="btn btn-primary text-white">Status</button>
+    </div>
+    <table class="table table-striped border mt-3 mb-5">
+        <thead>
+            <tr>
+                <th scope="col" class="text-danger-emphasis border">#</th>
+                <th id="title" scope="col" class="text-danger-emphasis border">Task Name</th>
+                <th scope="col" class="text-danger-emphasis border">Description</th>
+                <th scope="col" class="text-danger-emphasis border">Member Email</th>
+                <th id="status" scope="col" class="text-danger-emphasis border">Status</th>
+                <th scope="col" class="text-danger-emphasis border">Date</th>
+                <th scope="col" class="text-danger-emphasis border">View</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of data let j=index">
+                <td class="border">{{j+1}}</td>
+                <td class="border">{{i.title}}</td>
+                <td class="border">{{i.description}}</td>
+                <td class="border">{{i.email}}</td>
+                <td>
+                    <input [(ngModel)]="i.taskstatus" type="text" class="form-control mt-3" name="taskstatus"
+                    placeholder="Status" id="taskstatus">
+                    <button class="btn btn-success text-white me-2" (click)="updateTask()" style="border-radius: 10px;">Update</button>
+
+                </td>
+                <!-- <td class="border">{{i.taskstatus}} <i (click)="editStatus(i._id)" class="fa-solid fa-pen-to-square text-warning"></i></td> -->
+                <td class="border">{{i.date}}</td>
+                <td (click)="viewTask(i._id)" style="border-radius: 10px;"><i class="fa-solid fa-eye"></i></td>
+                <!-- <td><button (click)="editCompany(i._id)" class="w3-btn w3-teal" style="border-radius: 10px;">Edit</button></td>-->
+            </tr>
+        </tbody>
+    </table>
+</div>

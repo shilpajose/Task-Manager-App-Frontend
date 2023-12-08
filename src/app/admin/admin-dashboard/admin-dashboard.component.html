@@ -1,0 +1,34 @@
+<div>
+    <div class="row">
+        <div class="col-2 container w-25 bg-dark p-5 text-center text-white">
+            <div class="text-white text-center">
+                <h4 class="text-secondary">Welcome <span class="text-danger">{{name}}</span> have a nice day!!!</h4>
+            </div>
+            <hr>
+            <ul class="text-white">
+                <li class="fa-solid fa-gauge" routerLink="/admin/admin-dashboard"><a> Dashboard</a></li>
+                <hr>
+                <li class="fa-solid fa-book" routerLink="/admin/admin-addtask"><a> Add Tasks</a></li>
+                <hr>
+                <li class="fa-solid fa-list fa-1x" routerLink="/admin/admin-tasklist"><a> Task Lists</a></li>
+                <hr>
+                <li class="fa-solid fa-users" routerLink="/admin/admin-memberlist"> Members List</li>
+                <hr>
+                <li class="fa-solid fa-right-from-bracket" (click)="logout()"> LogOut</li>
+            </ul>
+        </div>
+        <div class="w-75 bg-light mt-5 p-5">
+            <div>
+                <a routerLink="/admin/admin-tasklist" class="text-light bg-success p-5 m-5" href="">All Tasks
+                    {{count}}</a>
+                <a routerLink="/admin/admin-tasklist" class="text-light bg-warning p-5 m-5" href="">Tasks Lists</a>
+                <a routerLink="/admin/admin-tasklist" class="text-light bg-danger p-5 m-5" href="">Employees {{mcount}}</a>
+                <a routerLink="/admin/admin-tasklist" class="text-light bg-primary p-5 m-5" href="">Status</a>
+            </div>
+            <div class="text-center">
+                <img src="https://i.postimg.cc/RZRBwHfR/graph.gif" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>

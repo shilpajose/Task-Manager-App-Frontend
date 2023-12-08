@@ -1,0 +1,45 @@
+<div class="container w-50 p-5  shadow p-3 mb-5 bg-white rounded"
+    style="margin-top: 5%;border-radius: 10px;border: 1px black;">
+    <h3 class="text-danger mt-1 text-center">Sign Up</h3>
+    <!-- Register Form for user -->
+    <form [formGroup]="userRegisterForm" class="mt-2 text-center">
+        <div class="form-row mt-3 ms-5 p-1">
+            <div class="row">
+                <div class="col">
+                    <img src="https://i.postimg.cc/GhhT8xvz/regi.gif" alt="" style="height: 300px; width: 100%;">
+                </div>
+                <div class="col">
+                    <div class="input-container">
+                        <input formControlName="fullname" class="form-control w-100" type="text"
+                            placeholder="Enter Your Name" name="fullname">
+                        <p *ngIf="this.userRegisterForm.get('name')?.errors && this.userRegisterForm.get('name')?.touched"
+                      class="text-danger text-center">Name Required (include only alphabets) </p>
+                    </div>
+                    <div class="input-container mt-2">
+                        <input formControlName="email" class="form-control w-100" formControlName="email" type="email"
+                            placeholder="Enter Your Email Id" name="email">
+                        <p *ngIf="this.userRegisterForm.get('email')?.errors && this.userRegisterForm.get('email')?.touched"
+                  class="text-danger text-center">Email Required</p>
+                    </div>
+                    <div class="input-container mt-2">
+                        <input formControlName="password" formControlName="password" class="form-control w-100" type="password"
+                            placeholder="Password" name="psw">
+                        <p *ngIf="this.userRegisterForm.get('password')?.errors && this.userRegisterForm.get('password')?.touched"
+                  class="text-danger text-center">Invalid password (include only alphabets and numbers)</p>
+                    </div>
+                    <div class="text-center mt-5">
+                        <a (click)="userRegister()" type="submit" class="btn bg-success bg-gradient ps-3 pe-3 text-light" style="border-radius: 10px;">Sign
+                            Up</a>
+                        <a href="" class="btn bg-danger bg-gradient ps-3 pe-3 text-light ms-4 me-5"
+                            style="border-radius: 10px;">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <hr>
+        <div class="text-center mt-4">
+            <span class="text-primary btn">Already a member?</span><a href="/" class="ms-4 me-5"
+                style="border-radius: 10px;">Login</a>
+        </div>
+    </form>
+</div>

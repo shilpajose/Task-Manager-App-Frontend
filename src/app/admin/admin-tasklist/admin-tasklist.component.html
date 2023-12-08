@@ -1,0 +1,67 @@
+<div>
+    <div class="row">
+        <div class="col-2 container w-25 bg-dark p-5 text-center text-white">
+            <div class="text-white text-center">
+                <h4 class="text-secondary">Welcome <span class="text-danger">{{name}}</span> have a nice day!!!</h4>
+            </div>
+            <hr>
+            <ul class="text-white">
+                <li class="fa-solid fa-gauge" routerLink="/admin/admin-dashboard"><a> Dashboard</a></li>
+                <hr>
+                <li class="fa-solid fa-book" routerLink="/admin/admin-addtask"><a> Add Tasks</a></li>
+                <hr>
+                <li class="fa-solid fa-list fa-1x" routerLink="/admin/admin-tasklist"><a> Task Lists</a></li>
+                <hr>
+                <li class="fa-solid fa-users" routerLink="/admin/admin-memberlist"> Members List</li>
+                <hr>
+                <li class="fa-solid fa-right-from-bracket" (click)="logout()"> LogOut</li>
+            </ul>
+        </div>
+        <div class="w-75 bg-light mt-5 p-5">
+            <div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/admin/admin-dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a routerLink="/admin/admin-tasklist">Tasklist</a></li>
+                    </ol>
+                </nav>
+                <h2 class="text-center text-danger mb-3 fw-400">Task List</h2>
+                <button class="btn btn-primary" routerLink="/admin/admin-addtask" style="border-radius: 10px;">Add
+                    new</button>
+                <!-- filter buttons -->
+                <div class="btn-group ms-5" role="group" aria-label="Basic outlined example">
+                    <button (click)="taskFilter('')" type="button" class="btn btn-outline-primary">All</button>
+                    <button (click)="taskFilter('pending')" type="button" class="btn btn-outline-primary">Pending</button>
+                    <button (click)="taskFilter('completed')" type="button" class="btn btn-outline-primary">Completed</button>
+                </div>
+                <!-- filter buttons ends-->
+
+                <table class="table table-striped border mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="text-danger-emphasis border">#</th>
+                            <th scope="col" class="text-danger-emphasis border">Task Name</th>
+                            <th scope="col" class="text-danger-emphasis border">Description</th>
+                            <th scope="col" class="text-danger-emphasis border">Member Email</th>
+                            <th scope="col" class="text-danger-emphasis border">Status</th>
+                            <th scope="col" class="text-danger-emphasis border">date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of filterTasks let j=index">
+                            <td class="border">{{j+1}}</td>
+                            <td class="border">{{i.title}}</td>
+                            <td class="border">{{i.description}}</td>
+                            <td class="border">{{i.email}}</td>
+                            <td class="border">{{i.taskstatus}}</td>
+                            <td class="border">{{i.date}}</td>
+                            <td (click)="editPage(i._id)" style="border-radius: 10px;"><i class="fa-solid fa-pen-to-square text-warning"></i></td>
+                            <td (click)="deleteTask(i._id)"><i class="fa-solid fa-trash text-danger"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

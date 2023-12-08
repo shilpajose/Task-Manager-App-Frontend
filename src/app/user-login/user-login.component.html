@@ -1,0 +1,38 @@
+<div class="container w-50 p-5  shadow p-3 mb-5 bg-white rounded"
+    style="margin-top: 5%;border-radius: 10px;border: 1px black;">
+    <h3 class="text-danger mt-1 text-center">Employee Login</h3>
+    <div class="col text-center">
+        <img src="https://i.postimg.cc/R0Wv8vZ0/girl.webp" alt="" style="height: 200px; width: 60%;">
+    </div>
+    <!-- Login Form for user -->
+    <form [formGroup]="user_login_Form" class="mt-2 text-center">
+        <div class="form-row mt-3 ms-5 p-1">
+            <div class="input-container">
+                <input formControlName="email" class="form-control w-100" formControlName="email" type="email"
+                    placeholder="Enter Your Email Id" name="email">
+                <p *ngIf="this.user_login_Form.get('email')?.errors && this.user_login_Form.get('email')?.touched"
+                    class="text-danger text-center">Email Required</p>
+            </div>
+            <div class="input-container mt-2">
+                <input formControlName="password" class="form-control w-100" type="password" placeholder="Password"
+                    name="psw">
+                <p *ngIf="this.user_login_Form.get('password')?.errors && this.user_login_Form.get('password')?.touched"
+                    class="text-danger text-center">Invalid password (include only alphabets and numbers)</p>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="/admin-login" class="btn btn-primary text-light ms-4 me-2" style="border-radius: 10px;" id="adlog">Admin
+                Login</a>
+            <a (click)="userlogin()" type="submit" class="btn bg-success bg-gradient ps-3 pe-3 text-light"
+                style="border-radius: 10px;">Sign in</a>
+            <a routerLink="" class="btn bg-danger bg-gradient ps-3 pe-3 text-light ms-2 me-5"
+                style="border-radius: 10px;">Cancel</a>
+        </div>
+        <hr>
+        <div class="text-center mt-4">
+            <span class="text-primary">Not a member?</span><a href="/user-register" class="w3-text-purple ms-4 me-5"
+                style="border-radius: 10px;" id="reg">Register</a>
+        </div>
+        <hr>
+    </form>
+</div>

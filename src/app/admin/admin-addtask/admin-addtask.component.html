@@ -1,0 +1,84 @@
+<div>
+    <div class="row">
+        <div class="col-2 container w-25 bg-dark p-5 text-center text-white">
+            <div class="text-white text-center">
+                <h4 class="text-secondary">Welcome <span class="text-danger">{{name}}</span> have a nice day!!!</h4>
+            </div>
+            <hr>
+            <ul class="text-white">
+                <li class="fa-solid fa-gauge" routerLink="/admin/admin-dashboard"><a>  Dashboard</a></li>
+                <hr>
+                <li class="fa-solid fa-book" routerLink="/admin/admin-addtask"><a>  Add Tasks</a></li>
+                <hr>
+                <li class="fa-solid fa-list fa-1x" routerLink="/admin/admin-tasklist"><a>  Task Lists</a></li>
+                <hr>
+                <li class="fa-solid fa-users" routerLink="/admin/admin-memberlist">  Members List</li>
+                <hr>
+                <li class="fa-solid fa-right-from-bracket" (click)="logout()">  LogOut</li>
+            </ul>
+        </div>
+        <div class="w-75 bg-light p-5 justify-content-center">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a routerLink="/admin/admin-dashboard">Dashboard</a></li>
+                  <li class="breadcrumb-item"><a routerLink="/admin/admin-addtask">Add Task</a></li>
+                </ol>
+              </nav>
+            <div class="w-100 shadow p-5">
+                <Form [formGroup]="add_task_form">
+                    <h3 class="text-danger text-center">Task Form</h3>
+                    <div class="mb-3">
+                        <label for="textbox" class="form-label">Title</label>
+                        <input formControlName="title" name="title" type="text" class="form-control" id="textbox"
+                            placeholder="Enter the task name">
+                            <p *ngIf="this.add_task_form.get('title')?.errors && this.add_task_form.get('title')?.touched"
+                  class="text-danger text-center">Title Required</p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1"
+                            class="form-label">Description(Project-Name,Task-Details)</label>
+                        <textarea formControlName="description" name="description" class="form-control"
+                            id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <p *ngIf="this.add_task_form.get('description')?.errors && this.add_task_form.get('description')?.touched"
+                            class="text-danger text-center">Description Required</p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="textbox2" class="form-label">Member Email</label>
+                        <input formControlName="email" name="email" type="email" class="form-control" id="textbox2"
+                            placeholder="Enter member email">
+                            <p *ngIf="this.add_task_form.get('email')?.errors && this.add_task_form.get('email')?.touched"
+                            class="text-danger text-center">Member Email Required</p>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="textbox3" class="form-label">Status</label>
+                                <!-- <input formControlName="taskstatus" name="taskstatus" type="text" class="form-control"
+                                    id="textbox3" placeholder="Enter status of the task"> -->
+                                    <select formControlName="taskstatus" name="taskstatus" id="taskstatus" class="form-control">
+                                        <option value="pending">Pending</option>
+                                        <option value="completed">Completed</option>
+                                      </select>
+                                    <p *ngIf="this.add_task_form.get('taskstatus')?.errors && this.add_task_form.get('taskstatus')?.touched"
+                                    class="text-danger text-center">Status Required</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="textbox4" class="form-label">Date</label>
+                                <input formControlName="date" name="date" type="date" class="form-control" id="textbox4"
+                                    placeholder="Enter the task name">
+                                    <p *ngIf="this.add_task_form.get('date')?.errors && this.add_task_form.get('date')?.touched"
+                                    class="text-danger text-center">Date Required</p>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a class="btn btn-danger" (click)="addTask()">Assign Task</a>
+                        </div>
+                    </div>
+                </Form>
+            </div>
+        </div>
+    </div>
+
+</div>
